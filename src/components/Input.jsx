@@ -1,4 +1,4 @@
-export default function Input({ label, textarea, ...props }) {
+export default function Input({ ref, label, textarea, ...props }) {
   const classes =
     'w-full p-1 rounded-sm border-b-2 border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600';
 
@@ -8,9 +8,9 @@ export default function Input({ label, textarea, ...props }) {
         {label}
       </label>
       {textarea ? (
-        <textarea className={classes} {...props} />
+        <textarea className={classes} ref={ref} {...props} />
       ) : (
-        <input className={classes} {...props} />
+        <input className={classes} ref={ref} {...props} />
       )}
     </div>
   );
