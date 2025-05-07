@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import Input from './Input.jsx';
 import Modal from './Modal.jsx';
 
-export default function NewProject({ onAdd }) {
+export default function NewProject({ onCancel, onAdd }) {
   const modal = useRef();
 
   const title = useRef();
@@ -34,14 +34,21 @@ export default function NewProject({ onAdd }) {
   return (
     <>
       <Modal ref={modal} buttonCaption="Close">
-        <h2>🚨Invalid inputs🚨</h2>
-        <p>A value must be entered for every field.</p>
+        <h2 className="font-bold text-xl text-stone-700 my-4">
+          Invalid inputs
+        </h2>
+        <p className="text-stone-500 mb-8">
+          A value must be entered for every field.
+        </p>
       </Modal>
-      ;
+
       <div className="w-[35rem] mt-16">
         <menu className="flex items-center justify-end gap-4 my-4">
           <li>
-            <button className="text-stone-800 hover:text-stone-950">
+            <button
+              className="text-stone-800 hover:text-stone-950"
+              onClick={onCancel}
+            >
               Cancel
             </button>
           </li>
